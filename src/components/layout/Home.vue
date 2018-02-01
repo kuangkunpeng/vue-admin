@@ -101,8 +101,8 @@
 <div class="layout-content">
     <div class="layout-content-main" :style="contentStyle">
           <transition 
-            enter-to-class="animated fadeInRight"
-            leave-to-class="animated fadeInLeft"
+            enter-to-class=""
+            leave-to-class=""
           >
           <router-view></router-view>
           </transition>

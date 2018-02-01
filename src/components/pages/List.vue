@@ -1,91 +1,89 @@
 <template>
-    <div class="">
-        <!-- <div class="animated bounce infinite">动画</div> -->
-         <i-table width="" border :columns="columns2" :data="data3"></i-table>
-    </div>
-   
+    <Table border  :loading="" :columns="columns" :data="data"></Table>
 </template>
 <script>
+  import {mapGetters} from 'Vuex';
     export default {
         data () {
             return {
-                columns2: [
+                columns: [
                     {
-                        title: '姓名',
+                         type: 'selection',
+                         width: 60,
+                        align: 'center'
+                    },
+                    {
+                        title: '名称',
                         key: 'name',
-                        width: 100,
-                        fixed: 'left'
+
                     },
                     {
-                        title: '年龄',
-                        key: 'age',
-                        width: 100
+                        title: '图片',
+                        key: 'pic'
                     },
                     {
-                        title: '省份',
-                        key: 'province',
-                        width: 100
-                    },
-                    {
-                        title: '市区',
-                        key: 'city',
-                        width: 100
-                    },
-                    {
-                        title: '地址',
-                        key: 'address',
-                        width: 200
-                    },
-                    {
-                        title: '邮编',
-                        key: 'zip',
-                        width: 100
+                        title: '描述',
+                        key: 'desc'
                     },
                     {
                         title: '操作',
-                        key: 'action',
-                        fixed: 'right',
-                        width: 120,
-                        render () {
-                            return `<i-button type="text" size="small">查看</i-button><i-button type="text" size="small">编辑</i-button>`;
+                        key: 'id',
+                        width: 150,
+                        align: 'center',
+                        render: (h, params) => {
+                            return h('div', [
+                                h('Button', {
+                                    props: {
+                                        type: 'primary',
+                                        size: 'small'
+                                    },
+                                    style: {
+                                        marginRight: '5px'
+                                    },
+                                    on: {
+                                        click: () => {
+                                            this.show(params.index)
+                                        }
+                                    }
+                                }, '查看'),
+                                h('Button', {
+                                    props: {
+                                        type: 'error',
+                                        size: 'small'
+                                    },
+                                    on: {
+                                        click: () => {
+                                            this.remove(params.index)
+                                        }
+                                    }
+                                }, '删除')
+                            ]);
                         }
                     }
                 ],
-                data3: [
-                    {
-                        name: '王小明',
-                        age: 18,
-                        address: '北京市朝阳区芍药居',
-                        province: '北京市',
-                        city: '朝阳区',
-                        zip: 100000
-                    },
-                    {
-                        name: '张小刚',
-                        age: 25,
-                        address: '北京市海淀区西二旗',
-                        province: '北京市',
-                        city: '海淀区',
-                        zip: 100000
-                    },
-                    {
-                        name: '李小红',
-                        age: 30,
-                        address: '上海市浦东新区世纪大道',
-                        province: '上海市',
-                        city: '浦东新区',
-                        zip: 100000
-                    },
-                    {
-                        name: '周小伟',
-                        age: 26,
-                        address: '深圳市南山区深南大道',
-                        province: '广东',
-                        city: '南山区',
-                        zip: 100000
-                    }
+                data: [
+
                 ]
             }
+        },
+        methods: {
+            show (index) {
+                // this.$Modal.info({
+                //     title: 'User Info',
+                //     content: `Name：${this.data6[index].name}<br>Age：${this.data6[index].age}<br>Address：${this.data6[index].address}`
+                // })
+            },
+            remove (index) {
+                this.data.splice(index, 1);
+            }
+        }
+        ,
+        mounted(){
+            let _this = this;
+            _this.getData('/data/product',{},function(data){
+                _this.data =data.data;
+            });
+            console.log()
         }
     }
 </script>

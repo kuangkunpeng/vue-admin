@@ -52,7 +52,7 @@
 		methods: {
 			handleSubmit(name) {
 				let _this=this;
-				_this.checkLogin('/login',{params: _this.formInline},function(data){
+				_this.getData('/login',{params: _this.formInline},function(data){
 					_this.$refs[name].validate((valid) => {
 						if (valid && data.data.status =='ok') {
 						Cookies.set('user',_this.formInline.user);
