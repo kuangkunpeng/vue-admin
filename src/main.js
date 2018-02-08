@@ -6,6 +6,7 @@ import router from './router'
 import store from './store'
 import  http from './api/index.js'
 import iView from 'iview'
+
 import 'iview/dist/styles/iview.css' // 使用 CSS
 import 'vue2-animate/dist/vue2-animate.min.css';
 import './assets/styles/layout/layout.less' // 引入布局样式

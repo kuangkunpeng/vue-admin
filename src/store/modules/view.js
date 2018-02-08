@@ -1,7 +1,7 @@
 
 // initial state
 const state = {
-  loading:false
+  loading:true
 }
 
 // getters
@@ -12,7 +12,7 @@ const getters = {
 // actions
 const actions = {
   changeLoading ({ commit },isloading) {
-    commit('changeLoading');
+    commit('changeLoading',isloading);
   }
 }
 

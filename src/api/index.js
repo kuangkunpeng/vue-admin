@@ -6,7 +6,7 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 
 //添加一个请求拦截器
 axios.interceptors.request.use(function(config){
-store.state.view.loading = false;
+  store.dispatch('changeLoading',true);
  return config;
 },function(err){
   //Do something with request error
@@ -15,11 +15,13 @@ store.state.view.loading = false;
 //添加一个响应拦截器
 axios.interceptors.response.use(function(res){
   //在这里对返回的数据进行处理
-  store.state.view.loading = true;
+  store.dispatch('changeLoading',false);
   return res;
 },function(err){
   //Do something with response error
-  return Promise.reject(error);
+  return Promise.reject(function () {
+    store.dispatch('changeLoading',false);
+  });
 })
 
 

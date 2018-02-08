@@ -2,7 +2,7 @@
   <div>
     <Row>
       <Col span="18">
-        <Form ref="formInline" :model="formInline" inline>
+        <Form ref="formInline"  inline>
           <FormItem prop="user">
             <Input type="text" placeholder="关键字">
             </Input>
@@ -14,13 +14,19 @@
       </Col>
       <Col span="6">
       <Row type="flex" justify="end" class="code-row-bg">
-        <Col span="6"><Button type="primary">添加</Button></Col>
+        <Col span="6">
+        <router-link to="/add">
+        <Button type="primary">
+          添加
+        </Button>
+        </router-link>
+        </Col>
         <Col span="6"><Button type="primary">删除</Button></Col>
       </Row>
       </Col>
     </Row>
 
-    <Table border :columns="columns" :data="data"></Table>
+    <Table border :columns="columns" :data="data" :loading="getLoading"></Table>
   </div>
 
 </template>
@@ -88,7 +94,13 @@
         data: []
       }
     },
+    computed: {
+      ...mapGetters([
+        'getLoading',
+      ])
+    },
     methods: {
+
       show(id) {
         // this.$Modal.info({
         //     title: 'User Info',

@@ -8,16 +8,21 @@ import Test from '@/components/pages/Test'
 const routes = [
 {
 	path: '/',
-	name: 'home',
+	name: '/',
 	component: Home,
 	redirect: '/index',
+  meta: {
+    requiresAuth: true ,// 是否需要登录
+    name:'首页'
+  },
 	children: [
 	{
 		path: '/index',
 		name: 'index',
 		component: Index,
 		meta: {
-          requiresAuth: true // 是否需要登录
+          requiresAuth: true ,// 是否需要登录
+          name:'主页'
         }
 	},
 	{
@@ -25,7 +30,8 @@ const routes = [
 		name: 'list',
 		component: List,
 		meta: {
-          requiresAuth: true // 是否需要登录
+          requiresAuth: true, // 是否需要登录
+           name:'列表'
         }
 	},
 	{
@@ -33,14 +39,16 @@ const routes = [
 		name: 'info',
 		component: Info,
 		meta: {
-          requiresAuth: true // 是否需要登录
+          requiresAuth: true, // 是否需要登录
+          name:'详情'
         }
 	},{
 		path: '/add',
 		name: 'add',
 		component: Add,
 		meta: {
-          requiresAuth: true // 是否需要登录
+          requiresAuth: true, // 是否需要登录
+          name:'添加'
         }
 	},{
 		path: '/test',
