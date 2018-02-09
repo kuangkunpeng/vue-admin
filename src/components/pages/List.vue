@@ -100,12 +100,7 @@
       ])
     },
     methods: {
-
       show(id) {
-        // this.$Modal.info({
-        //     title: 'User Info',
-        //     content: `Name：${this.data6[index].name}<br>Age：${this.data6[index].age}<br>Address：${this.data6[index].address}`
-        // })
         this.$router.push({path: 'info', query: {prdouctId: id}})
 
       },

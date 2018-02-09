@@ -20,7 +20,7 @@
       <editor :content="formData.desc" @change="updateData"   :height="200" :z-index="1000" :auto-height="true"></editor>
     </FormItem>
     <FormItem>
-      <Button type="primary" @click="handleSubmit('formData')">提交</Button>
+      <Button type="primary" @click.prevent="handleSubmit('formData')">提交</Button>
       <Button type="ghost" @click="handleReset('formData')" style="margin-left: 8px">重置</Button>
     </FormItem>
   </Form>
@@ -51,10 +51,13 @@
     },
     methods: {
       handleSubmit (name) {
-
+        var _this=this;
         this.$refs[name].validate((valid) => {
           if (valid) {
+            this.$ajax.post('/data/addproduct',{params:_this.formData}).then(function () {
+            }).catch(function (err) {
 
+            });
             this.$Message.success('Success!');
           } else {
             this.$Message.error('Fail!');
