@@ -54,13 +54,13 @@
         var _this=this;
         this.$refs[name].validate((valid) => {
           if (valid) {
-            this.$ajax.post('/data/addproduct',{params:_this.formData}).then(function () {
+            this.$ajax.post('/data/addproduct',{params:_this.formData}).then(function (data) {
             }).catch(function (err) {
 
             });
-            this.$Message.success('Success!');
+            this.$Message.success('添加成功');
           } else {
-            this.$Message.error('Fail!');
+            this.$Message.error('添加失败!');
           }
         })
       },
@@ -73,12 +73,13 @@
       },
 //      获取到上传图片的路径
       getImgData(data){
-        console.log(data)
         let _this = this;
         data.forEach(function (v,i) {
-
-          _this.formData.pics.push(v.url);
+          console.log(v);
+          console.log(v[i].url);
+          _this.formData.pics.push(v[i].url);
         })
+        console.log(_this.formData);
       }
     },
     mounted(){
