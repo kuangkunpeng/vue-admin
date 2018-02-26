@@ -13,7 +13,6 @@
       </template>
     </div>
     <Upload
-      @click="sendData"
       ref="upload"
       :show-upload-list="false"
       :default-file-list="defaultList"
@@ -65,6 +64,7 @@
       handleSuccess (res, file) {
         file.url = res.path;
         file.name =res.originalname;
+        this.sendData();
       },
       handleFormatError (file) {
         this.$Notice.warning({

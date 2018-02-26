@@ -2,16 +2,15 @@ const menu = [
 {
   path: '/index',
   name: '首页',
-  icon: 'heart',
+  icon: 'ivu-icon ivu-icon-home',
   level: 1,
   sort: 1,
-  children: [],
   fixed: false
 },
 {
   path: '/',
   name: '列表页',
-  icon: 'funnel',
+  icon: 'ivu-icon ivu-icon-soup-can',
   level: 0,
   fixed: false,
   children: [

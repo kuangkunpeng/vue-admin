@@ -41,7 +41,7 @@
           name:'',
           pics:[],
           date:'',
-          desc:'2222'
+          desc:''
         }
       }
     },
@@ -74,12 +74,10 @@
 //      获取到上传图片的路径
       getImgData(data){
         let _this = this;
+        _this.formData.pics=[];
         data.forEach(function (v,i) {
-          console.log(v);
-          console.log(v[i].url);
-          _this.formData.pics.push(v[i].url);
+          _this.formData.pics.push(v.url);
         })
-        console.log(_this.formData);
       }
     },
     mounted(){

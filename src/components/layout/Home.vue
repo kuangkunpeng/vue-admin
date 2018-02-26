@@ -63,12 +63,12 @@
   <div id="app">
     <div class="layout" :class="{'layout-hide-text': spanLeft < 5}">
       <Row type="flex">
-        <i-col :span="spanLeft" class="layout-menu-left">
+        <i-col  :span="spanLeft" class="layout-menu-left">
           <i-menu active-name="0-0" theme="dark" width="auto" :open-names="['1']">
             <div class="layout-logo-left"></div>
             <Submenu v-for="(item,index) in menu" name="index">
               <template slot="title">
-                <Icon type="item.icon" :size="iconSize"></Icon>
+                <Icon :class="item.icon" :size="iconSize"></Icon>
                 <span class="layout-text" v-text='item.name'>
 
                     </span>
@@ -121,7 +121,7 @@
             </div>
           </div>
           <div class="layout-copy">
-            2016-2017 &copy; 027wh
+            2017-2017 &copy; kuangkunpeng
           </div>
         </i-col>
       </Row>
