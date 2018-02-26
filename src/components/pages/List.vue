@@ -135,6 +135,8 @@
           _this.data = data.data;
           _this.data.forEach(function (v, i) {
             v.pic = v.pics[0];
+
+
           })
         });
       },
