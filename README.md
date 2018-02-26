@@ -1,30 +1,19 @@
-# my-project2
+# Vue-admin
 
-> A Vue.js project
+>Vue.js project
 
-## Build Setup
+## 构建步骤
 
 ``` bash
-# install dependencies
+# 安装依赖
 npm install
 
-# serve with hot reload at localhost:8080
+# 开发环境运行
 npm run dev
 
-# build for production with minification
+# 项目打包
 npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
+本项目所有后天接口依赖于vue-express这个项目
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
